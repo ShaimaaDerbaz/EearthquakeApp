@@ -37,7 +37,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     public static final String URL_USGS = "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01&endtime=2016-01-31&minmagnitude=5&limit=10";
   //  URL url=new URL(URL_USGS) ;
-  ListView earthquakeListView = (ListView) findViewById(R.id.activity_main);
+  ListView earthquakeListView ;
     EearthquakeAdapter mAdapter;
     private static URL createUrl(String stringUrl) {
         URL url = null;
@@ -151,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        earthquakeListView = (ListView) findViewById(R.id.activity_main);
         URL URLus=createUrl(URL_USGS);
         EarthquakeAsyncTask task=new EarthquakeAsyncTask(this);
         task.execute(URLus);
